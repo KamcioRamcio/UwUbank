@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Morning Run",
+    "startedOn": "2024-10-27T16:22:16.763212",
+    "endedOn": "2024-10-27T17:22:16.763222",
+    "miles": 5,
+    "location": "PARK"
+  },
+  {
+    "id": 2,
+    "title": "Evening Run",
+    "startedOn": "2024-10-28T18:30:00.000000",
+    "endedOn": "2024-10-28T19:30:00.000000",
+    "miles": 7,
+    "location": "INDOOR"
+  },
+  {
+    "id": 3,
+    "title": "Weekend Run",
+    "startedOn": "2024-10-29T08:00:00.000000",
+    "endedOn": "2024-10-29T09:00:00.000000",
+    "miles": 10,
+    "location": "OUTDOOR"
+  },
+  {
+    "id": 4,
+    "title": "Night Run",
+    "startedOn": "2024-10-30T21:00:00.000000",
+    "endedOn": "2024-10-30T22:00:00.000000",
+    "miles": 6,
+    "location": "PARK"
+  }
+]
