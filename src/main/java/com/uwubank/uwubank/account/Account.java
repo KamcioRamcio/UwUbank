@@ -1,9 +1,13 @@
 package com.uwubank.uwubank.account;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uwubank.uwubank.customer.Customer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
-
 
 @Data
 @NoArgsConstructor
@@ -11,13 +15,22 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Account {
 
     @Id
+    @Column("account_id")
     private Long accountId;
 
     private double balance = 0.0;
-    private String accountType;
+
+    @Column("account_type")
+    private AccountType accountType;
+
+    @Column("customer_id")
     private Long customerId;
 
-    public Account(Long customerId, String accountType) {
+    @Transient
+    @JsonIgnore
+    private Customer customer;
+
+    public Account(Long customerId, AccountType accountType) {
         this.customerId = customerId;
         this.accountType = accountType;
     }

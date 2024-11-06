@@ -1,17 +1,20 @@
 package com.uwubank.uwubank.customer;
-import com.uwubank.uwubank.users.User;
+
 import com.uwubank.uwubank.account.Account;
+import com.uwubank.uwubank.branch.Branch;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Table(name = "customers")
+@Table("customers")
 public class Customer {
     @Id
     @Column("customer_id")
@@ -22,36 +25,18 @@ public class Customer {
     private String address;
     private String phoneNumber;
     private String email;
-    private List<Account> accounts;
+    @Column("branch_id")
+    private Long branchId;
 
-    private User user;
-
-    public Customer(String name, String surname, String pesel, String address, String phoneNumber, String email) {
-
+    public Customer(String name, String surname, String pesel, String address, String phoneNumber, String email, Long branchId) {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.branchId = branchId;
+    }
 
-        this.user = new User(email, "defaultPassword", "CUSTOMER", this);
-    }
-    public void addAccount(Account account) {
-        accounts.add(account);
-    }
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerId=" + customerId +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", accounts=" + accounts +
-                ", user=" + user +
-                '}';
-    }
+
 }
