@@ -5,6 +5,7 @@ import com.uwubank.uwubank.employee.Employee;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -26,6 +27,12 @@ public class User {
     @Column("employee_id")
     private Long employeeId;
 
+    @Transient
+    private Customer customer;
+    @Transient
+    private Employee employee;
+
+
     public User(String username, String password, String role, Customer customer) {
         this.username = username;
         this.password = password;
@@ -39,4 +46,11 @@ public class User {
         this.role = role;
         this.employeeId = employee.getEmployeeId();
     }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+
 }

@@ -1,6 +1,8 @@
 package com.uwubank.uwubank.employee;
 
+import com.uwubank.uwubank.branch.Branch;
 import com.uwubank.uwubank.branch.BranchRepository;
+import com.uwubank.uwubank.branch.BranchService;
 import com.uwubank.uwubank.customer.Customer;
 import com.uwubank.uwubank.customer.CustomerRepository;
 import com.uwubank.uwubank.users.User;
@@ -17,11 +19,13 @@ public class EmployeeService {
     private final BranchRepository branchRepository;
     private final UserRepository userRepository;
     private final CustomerRepository customerRepository;
+    private final BranchService branchService;
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository, BranchRepository branchRepository, UserRepository userRepository, CustomerRepository customerRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, BranchService branchService, BranchRepository branchRepository, UserRepository userRepository, CustomerRepository customerRepository) {
         this.employeeRepository = employeeRepository;
         this.branchRepository = branchRepository;
+        this.branchService = branchService;
         this.userRepository = userRepository;
         this.customerRepository = customerRepository;
     }
@@ -30,6 +34,9 @@ public class EmployeeService {
         if (branchRepository.findById(employee.getBranchId()).isPresent()) {
             Employee savedEmployee = employeeRepository.save(employee);
             User _user = new User(user.getUsername(), user.getPassword(), "EMPLOYEE", employee);
+            Branch branch = branchService.getBranchWithDetails(employee.getBranchId())
+                    .orElseThrow(() -> new IllegalArgumentException("Branch not found"));
+            employee.setBranch(branch);
             userRepository.save(_user);
             return savedEmployee;
         } else {

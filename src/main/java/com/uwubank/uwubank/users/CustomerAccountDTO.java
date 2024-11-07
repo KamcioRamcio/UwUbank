@@ -1,14 +1,13 @@
-package com.uwubank.uwubank.customer;
+package com.uwubank.uwubank.users;
 
 import com.uwubank.uwubank.account.Account;
-import com.uwubank.uwubank.users.User;
+import com.uwubank.uwubank.customer.Customer;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class CustomerUserDTO {
+public class CustomerAccountDTO {
     private Customer customer;
-    private User user;
     private List<Account> accounts;
 }
