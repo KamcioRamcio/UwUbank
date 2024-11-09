@@ -87,3 +87,38 @@ CREATE TABLE IF NOT EXISTS own_transfers
     to_account_id   INTEGER        NOT NULL REFERENCES accounts (account_id) ON DELETE CASCADE,
     date            DATE           NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS loans
+(
+    loan_id       SERIAL PRIMARY KEY,
+    customer_id   INTEGER        NOT NULL REFERENCES customers (customer_id) ON DELETE CASCADE,
+    amount        NUMERIC(15, 2) NOT NULL,
+    currency      VARCHAR(5)     NOT NULL,
+    start_date    DATE           NOT NULL,
+    end_date      DATE           NOT NULL,
+    interest_rate NUMERIC(5, 2)  NOT NULL,
+    approved      BOOLEAN        NOT NULL,
+    status        VARCHAR(50)    NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS savings
+(
+    savings_id    SERIAL PRIMARY KEY,
+    customer_id   INTEGER        NOT NULL REFERENCES customers (customer_id) ON DELETE CASCADE,
+    balance       NUMERIC(15, 2) NOT NULL,
+    currency      VARCHAR(5)     NOT NULL,
+    interest_rate NUMERIC(5, 2)  NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cards
+(
+    card_id         SERIAL PRIMARY KEY,
+    customer_id     INTEGER        NOT NULL REFERENCES customers (customer_id) ON DELETE CASCADE,
+    account_id      INTEGER        NOT NULL REFERENCES accounts (account_id) ON DELETE CASCADE,
+    card_number     VARCHAR(16)    NOT NULL,
+    card_type       VARCHAR(50)    NOT NULL,
+    expiration_date DATE           NOT NULL,
+    cvv             VARCHAR(3)     NOT NULL,
+    limits          NUMERIC(15, 2) NOT NULL,
+    status          VARCHAR(50)    NOT NULL
+);
