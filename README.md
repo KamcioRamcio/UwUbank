@@ -51,6 +51,12 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 ```
+### Configure CORS for the Frontend
+```
+In file WebConfig.java set the allowed origins for the frontend application.
+```
+
+
 
 ### Build and Run the Application
 ```sh
