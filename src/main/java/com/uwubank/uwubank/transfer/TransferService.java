@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 
@@ -90,5 +91,17 @@ public class TransferService {
 
         ownTransfer.setDate(new Date());
         return ownTransferRepository.save(ownTransfer);
+    }
+
+    public List<TransferDetailsDTO> getTransferDetailsByCustomerId(Long customerId) {
+        return transferRepository.findTransferDetailsByCustomerId(customerId);
+    }
+
+    public List<Transfer> getAllTransfersByCustomerId(Long customerId) {
+        return transferRepository.findAllByCustomerId(customerId);
+    }
+
+    public List<OwnTransfer> getAllOwnTransfersByCustomerId(Long customerId) {
+        return ownTransferRepository.findAllByCustomerId(customerId);
     }
 }

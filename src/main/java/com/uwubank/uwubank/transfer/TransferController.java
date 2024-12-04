@@ -3,6 +3,8 @@ package com.uwubank.uwubank.transfer;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/transfers")
@@ -24,5 +26,19 @@ public class TransferController {
         return transferService.executeOwnTransfer(ownTransfer);
     }
 
+    @GetMapping("/details")
+    public List<TransferDetailsDTO> getTransferDetailsByCustomerId(@RequestParam Long customerId) {
+        return transferService.getTransferDetailsByCustomerId(customerId);
+    }
+
+    @GetMapping("/customer/{customerId}")
+    public List<Transfer> getAllTransfersByCustomerId(@PathVariable Long customerId) {
+        return transferService.getAllTransfersByCustomerId(customerId);
+    }
+
+    @GetMapping("/customer/own/{customerId}")
+    public List<OwnTransfer> getAllOwnTransfersByCustomerId(@PathVariable Long customerId) {
+        return transferService.getAllOwnTransfersByCustomerId(customerId);
+    }
 
 }

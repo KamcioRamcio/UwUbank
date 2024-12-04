@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class TransactionsService {
 
@@ -85,5 +87,13 @@ public class TransactionsService {
 
         outcome.setDate(java.time.LocalDate.now());
         return outcomesRepository.save(outcome);
+    }
+
+    public List<Incomes> getIncomesByCustomerId(Long customerId) {
+        return incomesRepository.findAllByCustomerId(customerId);
+    }
+
+    public List<Outcomes> getOutcomesByCustomerId(Long customerId) {
+        return outcomesRepository.findAllByCustomerId(customerId);
     }
 }
