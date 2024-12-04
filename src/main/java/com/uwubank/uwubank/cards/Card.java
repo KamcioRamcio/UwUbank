@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Table("cards")
-public class Card {
+public class  Card {
 
     @Id
     private Long cardId;

@@ -37,7 +37,7 @@ public class TransferService {
         if (senderAccount.getBalance() < transfer.getAmount()) {
             throw new IllegalArgumentException("Insufficient balance");
         }
-        if (receiverAccount.getCustomerId().equals(transfer.getSenderAccountId())) {
+        if (receiverAccount.getCustomerId() == transfer.getSenderAccountId() ) {
             throw new IllegalArgumentException("Account belong to customer");
         }
 

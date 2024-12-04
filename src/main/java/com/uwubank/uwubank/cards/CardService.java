@@ -95,4 +95,8 @@ public class CardService {
             throw new IllegalArgumentException("Invalid card ID");
         }
     }
+    public List<Card> getCardsByCustomerId(Long customerId) {
+        return cardRepository.findByCustomerId(customerId);
+    }
+
 }

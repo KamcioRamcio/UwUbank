@@ -3,6 +3,7 @@ package com.uwubank.uwubank.cards;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,5 +29,10 @@ public class CardController {
     public Card changeLimits(@PathVariable Long cardId, @RequestBody Map<String, Double> request) {
         double limits = request.get("limits");
         return cardService.changeLimits(cardId, limits);
+    }
+
+    @GetMapping("/customer/{customerId}")
+    public List<Card> getCardsByCustomerId(@PathVariable Long customerId) {
+        return cardService.getCardsByCustomerId(customerId);
     }
 }
