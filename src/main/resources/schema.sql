@@ -122,3 +122,4 @@ CREATE TABLE IF NOT EXISTS cards
     limits          NUMERIC(15, 2) NOT NULL,
     status          VARCHAR(50)    NOT NULL
 );
+
