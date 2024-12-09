@@ -5,12 +5,12 @@ import com.uwubank.uwubank.customer.Customer;
 import com.uwubank.uwubank.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.uwubank.uwubank.BasicController;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-public class EmployeeController {
+public class EmployeeController extends BasicController {
 
     private final EmployeeService employeeService;
 

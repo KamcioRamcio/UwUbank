@@ -2,12 +2,13 @@ package com.uwubank.uwubank.branch;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.uwubank.uwubank.BasicController;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/branches")
-public class BranchController {
+public class BranchController extends BasicController {
 
     private final BranchService branchService;
 

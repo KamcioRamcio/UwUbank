@@ -2,13 +2,15 @@ package com.uwubank.uwubank.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.uwubank.uwubank.BasicController;
+
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/accounts")
-public class AccountController {
+public class AccountController extends BasicController {
 
     private final AccountService accountService;
 

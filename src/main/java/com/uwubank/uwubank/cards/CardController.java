@@ -2,13 +2,13 @@ package com.uwubank.uwubank.cards;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
+import com.uwubank.uwubank.BasicController;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cards")
-public class CardController {
+public class CardController extends BasicController {
     private final CardService cardService;
 
     public CardController(CardService cardService) {

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.uwubank.uwubank.BasicController;
 @RestController
 @RequestMapping("/api/loans")
-public class LoanController {
+public class LoanController extends BasicController {
     private final LoanService loanService;
 
     @Autowired

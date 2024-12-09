@@ -2,10 +2,11 @@ package com.uwubank.uwubank.statement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.uwubank.uwubank.BasicController;
 
 @RestController
 @RequestMapping("/api/statements")
-public class StatementsController {
+public class StatementsController extends BasicController {
 
     private final StatementsService statementsService;
 

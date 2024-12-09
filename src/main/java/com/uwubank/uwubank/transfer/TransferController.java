@@ -2,13 +2,13 @@ package com.uwubank.uwubank.transfer;
 
 
 import org.springframework.web.bind.annotation.*;
-
+import com.uwubank.uwubank.BasicController;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/api/transfers")
-public class TransferController {
+public class TransferController extends BasicController {
 
     private final TransferService transferService;
 

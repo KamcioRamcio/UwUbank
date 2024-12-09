@@ -3,12 +3,12 @@ package com.uwubank.uwubank.customer;
 import com.uwubank.uwubank.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.uwubank.uwubank.BasicController;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/customers")
-public class CustomerController {
+public class CustomerController extends BasicController {
 
     private final CustomerService customerService;
 

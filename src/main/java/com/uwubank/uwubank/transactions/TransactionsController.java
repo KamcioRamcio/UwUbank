@@ -2,12 +2,12 @@ package com.uwubank.uwubank.transactions;
 
 
 import org.springframework.web.bind.annotation.*;
-
+import com.uwubank.uwubank.BasicController;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
-public class TransactionsController {
+public class TransactionsController extends BasicController {
 
     private final TransactionsService transactionsService;
 
