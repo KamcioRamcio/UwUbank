@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.uwubank.uwubank.users.LoginServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-01-23T18:50:56" hostname="kamcio" time="0.054">
+  <properties/>
+  <testcase name="loginCustomer_InvalidUsername_ThrowsException()" classname="com.uwubank.uwubank.users.LoginServiceTest" time="0.047"/>
+  <testcase name="loginCustomer_ValidCredentials_ReturnsDTO()" classname="com.uwubank.uwubank.users.LoginServiceTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
